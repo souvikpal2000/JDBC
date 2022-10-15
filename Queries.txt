@@ -1,5 +1,7 @@
+CREATE DATABASE wipro;
+
 CREATE TABLE userTB (
-	UserID VARCHAR(200),
+    UserID VARCHAR(200) PRIMARY KEY,
     Password VARCHAR(200),
     Name VARCHAR(200),
     IncorrectAttempts INT(2),
@@ -9,4 +11,4 @@ CREATE TABLE userTB (
 
 INSERT INTO userTB VALUES('AB1001','AB1001','Hari',0,0,'Admin'); 
 INSERT INTO userTB VALUES('TA1002','TA1002','Prasath',0,0,'Employee'); 
-INSERT INTO userTB VALUES('RS1003','RS1003','Ganesh',0,0,'Employee'); 
+INSERT INTO userTB VALUES('RS1003','RS1003','Ganesh',0,0,'Employee');
