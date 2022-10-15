@@ -11,6 +11,8 @@ You may either run the following Commands Present in *Queries.txt* or You may im
 
 ### Steps to import wipro.sql (For XAMPP Only)
 
+*(Tested in XAMPP v3.3.0)*
+
 1. Open XAMPP Control Panel.
 2. Start **Apache** & **MySQL** Module.
 3. Click the **Admin** Button of MySQL Module.
