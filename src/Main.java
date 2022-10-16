@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.ArrayList;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
@@ -128,5 +129,31 @@ public class Main {
 		UserBean newUser02 = new UserBean(newUserId02, newPassword02, newName02, newIncorrectAttempts02, newLockStatus02, newUserType02);
 		String message06 = dao.addUser_2(newUser02);
 		System.out.println("New User Added : " + message06);
+		
+		System.out.println("");
+		
+		System.out.println("Display Users by UserType");
+		System.out.println("*************************");
+		System.out.println("");
+		
+		System.out.print("Enter UserType : ");
+		String searchByUserType = br.readLine();
+		System.out.println("");
+		
+		ArrayList<UserBean> list = dao.getUsers(searchByUserType);
+		for(UserBean bean : list) {
+			System.out.println(bean);
+		}
+		
+		System.out.println("");
+		
+		System.out.println("Display All Users");
+		System.out.println("*****************");
+		System.out.println("");
+		
+		ArrayList<UserBean> l = dao.storeAllRecords();
+		for(UserBean bean : l) {
+			System.out.println(bean);
+		}
 	}
 }

@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.util.ArrayList;
 
 class UserDAO{
 	public String getUserType(String userID){
@@ -203,5 +204,48 @@ class UserDAO{
 			message = "Fail";
 		}
 		return message;
+	}
+	
+	public ArrayList<UserBean> getUsers(String userType) {
+		DBConnection connec = new DBConnection();
+		Connection con;
+		ArrayList<UserBean> list = new ArrayList<>();
+		try {
+			con = connec.getConnection();
+			String query = "SELECT * FROM usertb WHERE UserType=?";
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setString(1, userType);
+			ResultSet rs = pst.executeQuery();
+			while(rs.next()) {
+				UserBean bean = new UserBean(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getString(6));
+				list.add(bean);
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public ArrayList<UserBean> storeAllRecords() {
+		DBConnection connec = new DBConnection();
+		Connection con;
+		ArrayList<UserBean> list = new ArrayList<>();
+		try {
+			con = connec.getConnection();
+			String query = "SELECT * FROM usertb";
+	        Statement st = con.createStatement();
+	        ResultSet rs = st.executeQuery(query);
+			while(rs.next()) {
+				UserBean bean = new UserBean(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getString(6));
+				list.add(bean);
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 }
