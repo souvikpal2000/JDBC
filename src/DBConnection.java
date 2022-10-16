@@ -3,7 +3,7 @@ import java.sql.*;
 class DBConnection{
 	public Connection getConnection() throws ClassNotFoundException, SQLException{
 		String driver = "com.mysql.cj.jdbc.Driver";
-		// Change username & password assigned to your MySQL Server
+		// Change username & password according to your MySQL Server
 		String username = "root";
 		String password = "";
 		

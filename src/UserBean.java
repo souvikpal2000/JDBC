@@ -65,5 +65,10 @@ class UserBean{
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "UserBean [userId=" + userId + ", password=" + password + ", name=" + name + ", incorrectAttempts="
+				+ incorrectAttempts + ", lockStatus=" + lockStatus + ", userType=" + userType + "]";
+	}
 }
