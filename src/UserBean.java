@@ -71,4 +71,5 @@ class UserBean{
 		return "UserBean [userId=" + userId + ", password=" + password + ", name=" + name + ", incorrectAttempts="
 				+ incorrectAttempts + ", lockStatus=" + lockStatus + ", userType=" + userType + "]";
 	}
+	
 }

@@ -248,4 +248,27 @@ class UserDAO{
 		}
 		return list;
 	}
+	
+	public String[] getNames() {
+		DBConnection connec = new DBConnection();
+		Connection con;
+		ArrayList<String> list = new ArrayList<>();
+		String[] arr = {};
+		try {
+			con = connec.getConnection();
+			String query = "SELECT Name FROM usertb";
+	        Statement st = con.createStatement();
+	        ResultSet rs = st.executeQuery(query);
+			while(rs.next()) {
+				list.add(rs.getString(1));
+			}
+	        arr = new String[list.size()]; 
+	        arr = list.toArray(arr); 
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return arr;
+	}
 }
