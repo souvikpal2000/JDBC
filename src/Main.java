@@ -155,5 +155,17 @@ public class Main {
 		for(UserBean bean : l) {
 			System.out.println(bean);
 		}
+		
+		System.out.println("");
+		
+		System.out.println("Display All Names");
+		System.out.println("*****************");
+		System.out.println("");
+		
+		String[] names = dao.getNames();
+		
+		for(String userName : names) {
+			System.out.println(userName);
+		}
 	}
 }
